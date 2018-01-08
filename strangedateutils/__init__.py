@@ -13,20 +13,20 @@ def month_bound_from_month_number(year, month):
 
 
 def week_bound_from_date(d):
-    """Get first and last date in date's week. First day is Monday"""
+    """Get first and last date in date's week. First day is Monday."""
     first_day = d - timedelta(days=d.weekday())
     last_day = first_day + timedelta(days=6)
     return first_day, last_day
 
 
 def week_bound_from_week_number(week_year, week):
-    """Get first and last date in isoweeknum. First day is Monday"""
+    """Get first and last date in isoweeknum. First day is Monday."""
     first_day = datetime.strptime(str(week_year) + str(week) + '1', '%Y%W%w')
     return week_bound_from_date(first_day)
 
 
 def diff_week(minuend, subtrahend):
-    """Get two date's week diff."""
+    """Get two dates' week diff."""
     monday1, _ = week_bound_from_date(minuend)
     monday2, _ = week_bound_from_date(subtrahend)
 
@@ -34,14 +34,14 @@ def diff_week(minuend, subtrahend):
 
 
 def diff_month(minuend, subtrahend):
-    """Get two date's month diff."""
+    """Get two dates' month diff."""
     return (minuend.year - subtrahend.year) * 12 + minuend.month - subtrahend.month
 
 
 def month_weekdays(d, weekday):
     """
-    Get all weekday in a month which date in.
-    You can use month_*days for simple.
+    Get all weekday in a month which the date in.
+    Use month_*days for simple.
 
     :param d: date, will return all weekday in this date's month
     :param weekday: 0-Monday, 1-Tuesday, 2-Wednesday, 3-Thursday, 4-Friday, 5-Saturday, 6-Sunday.
@@ -87,7 +87,7 @@ def month_sundays(d):
 
 
 def daterange(start, end):
-    """range version for date. NOTE: As in-built range, this not include the end."""
+    """range version for date. NOTE: As built-in range, this not include the end."""
     d = start
     delta = timedelta(days=1)
     while d < end:
