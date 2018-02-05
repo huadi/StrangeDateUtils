@@ -21,7 +21,7 @@ def week_bound_from_date(d):
 
 def week_bound_from_week_number(week_year, week):
     """Get first and last date in isoweeknum. First day is Monday."""
-    first_day = datetime.strptime(str(week_year) + str(week) + '1', '%Y%W%w')
+    first_day = datetime.strptime(str(week_year) + str(week) + '1', '%G%V%w')
     return week_bound_from_date(first_day)
 
 
